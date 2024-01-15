@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Player_Activity extends AppCompatActivity{
     Button btnPlay, btnNext, btnPrev, btnFor, btnBack;
@@ -46,7 +47,7 @@ public class Player_Activity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player);
 
-        getSupportActionBar().setTitle("Now Playing");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Now Playing");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
@@ -189,8 +190,6 @@ public class Player_Activity extends AppCompatActivity{
                 mediaPlayer.seekTo(mediaPlayer.getCurrentPosition()+10000);
             }
         });
-
-
 
         btnBack.setOnClickListener(view -> {
             if (mediaPlayer.isPlaying())
